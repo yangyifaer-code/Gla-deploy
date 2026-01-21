@@ -1,302 +1,455 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的导航页</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url('http://files.unn.pp.ua/download/pictures%2Fbackground.jpg');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
-        
-        .header {
-            color: #fff;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-        }
-        
-        .search-container {
-            padding: 3rem;
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto 20px;
-        }
-        
-        .search-box {
-            width: 100%;
-            padding: 15px 18px;
-            font-size: 20px;
-            border: none;
-            border-radius: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            outline: none;
-            background-color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 12px;
-        }
-        
-        .link-item {
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 15px;
-            padding: 12px;
-            transition: all 0.2s;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            height: 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .link-item:hover {
-            background-color: rgba(255, 255, 255, 0.85);
-            transform: translateY(-2px);
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-        }
-        
-        .link-item a {
-            text-decoration: none;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            justify-content: center;
-        }
-        
-        .link-icon {
-            width: 24px;
-            height: 24px;
-            margin-bottom: 8px;
-            object-fit: contain;
-        }
-        
-        .link-text {
-            font-size: 14px;
-            text-align: center;
-            word-break: break-word;
-            max-width: 100%;
-        }
-        .foot_marker {
-            position: fixed;
-            bottom: 10px;
-            left: 0;
-            right: 0;
-            width: 100%;
-            text-align: center;
-            font-size: 12px;
-            color: rgba(255,255,255,0.8);
-            z-index: 999;
-            padding: 10px 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>玩具导航页</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-        .foot_marker a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            padding: 5px 10px;
-            border-radius: 15px;
-        }
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1515488764276-beab7607c1e6?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
 
-        .foot_marker a:hover {
-            color: #4388e0;
-        }        
-    </style>
+    .header {
+      max-width: 1000px;
+      margin: 0 auto 10px;
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .subheader {
+      max-width: 1000px;
+      margin: 0 auto 18px;
+      color: rgba(255,255,255,0.9);
+      font-size: 14px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.35);
+    }
+
+    .search-container {
+      padding: 2.2rem 1rem 1.5rem;
+      width: 100%;
+      max-width: 650px;
+      margin: 0 auto 18px;
+    }
+
+    .search-wrap {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.35);
+      border-radius: 22px;
+      padding: 10px 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+      backdrop-filter: blur(6px);
+    }
+
+    .search-icon {
+      color: rgba(0,0,0,0.55);
+      font-size: 18px;
+      width: 28px;
+      text-align: center;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 12px 8px;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      background: rgba(255,255,255,0.55);
+      border-radius: 16px;
+    }
+
+    .chip-row {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .chip {
+      cursor: pointer;
+      user-select: none;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.95);
+      border: 1px solid rgba(255,255,255,0.28);
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.25);
+      transition: transform 0.15s ease, background 0.15s ease;
+      backdrop-filter: blur(6px);
+    }
+
+    .chip:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.55);
+      color: rgba(0,0,0,0.78);
+      text-shadow: none;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+    }
+
+    .link-item {
+      background-color: rgba(255, 255, 255, 0.28);
+      border-radius: 15px;
+      padding: 12px;
+      transition: all 0.2s;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+      text-align: center;
+      height: 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(6px);
+    }
+
+    .link-item:hover {
+      background-color: rgba(255, 255, 255, 0.85);
+      transform: translateY(-2px);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+    }
+
+    .link-item a {
+      text-decoration: none;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+    }
+
+    .link-icon {
+      width: 26px;
+      height: 26px;
+      margin-bottom: 8px;
+      object-fit: contain;
+    }
+
+    .link-text {
+      font-size: 13px;
+      text-align: center;
+      word-break: break-word;
+      max-width: 100%;
+      line-height: 1.1;
+    }
+
+    .category {
+      max-width: 1000px;
+      margin: 10px auto 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.95);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.35);
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .category .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.85);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+    }
+
+    .foot_marker {
+      position: fixed;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.85);
+      z-index: 999;
+      padding: 10px 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.32), transparent);
+    }
+
+    .foot_marker a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      padding: 5px 10px;
+      border-radius: 15px;
+    }
+
+    .foot_marker a:hover {
+      color: #ffd54a;
+    }
+
+    /* 响应式：屏幕窄时自动变列数 */
+    @media (max-width: 980px) {
+      .container { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .container { grid-template-columns: repeat(3, 1fr); }
+      .link-item { height: 72px; }
+      .search-box { font-size: 16px; }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="search-container">
-        <form action="https://www.google.com/search" method="get" target="_blank">
-            <input class="search-box" type="text" name="q" placeholder="Google 搜索...">
-        </form>
-    </div>
-    
-    <div class="container">
-        <!-- 第一行 -->
-        <div class="link-item">
-            <a href="https://www.google.com" target="_blank">
-                <img class="link-icon" src="https://www.google.com/favicon.ico" alt="Google">
-                <span class="link-text">Google</span>
-            </a>
-        </div>
-        <div class="link-item">
-            <a href="https://www.baidu.com" target="_blank">
-                <img class="link-icon" src="https://www.baidu.com/favicon.ico" alt="Baidu">
-                <span class="link-text">Baidu</span>
-            </a>
-        </div>
-        <div class="link-item">
-            <a href="https://www.youtube.com" target="_blank">
-                <img class="link-icon" src="https://www.youtube.com/favicon.ico" alt="YouTube">
-                <span class="link-text">Youtube</span>
-            </a>
-        </div>
-        <div class="link-item">
-            <a href="https://mail.google.com/mail/u/0/" target="_blank">
-                <img class="link-icon" src="https://mail.google.com/favicon.ico" alt="Gmail">
-                <span class="link-text">Gmail</span>
-            </a>
-        </div>
-        <div class="link-item">
-            <a href="https://github.com" target="_blank">
-                <img class="link-icon" src="https://github.com/favicon.ico" alt="GitHub">
-                <span class="link-text">GitHub</span>
-            </a>
-        </div>
-        <div class="link-item">
-            <a href="https://ip.sb" target="_blank">
-                <img class="link-icon" src="https://ip.sb/favicon.ico" alt="IP SB">
-                <span class="link-text">ip.sb</span>
-            </a>
-        </div>
-        
-        <!-- 第二行 -->
-        <div class="link-item">
-            <a href="https://dash.cloudflare.com" target="_blank">
-                <img class="link-icon" src="https://www.cloudflare.com/favicon.ico" alt="Cloudflare">
-                <span class="link-text">Cloudflare</span>
-            </a>
-        </div>
-        <div class="link-item">
-            <a href="https://chat.openai.com" target="_blank">
-                <img class="link-icon" src="https://chat.openai.com/favicon.ico" alt="ChatGPT">
-                <span class="link-text">Chatgpt</span>
-            </a>
-        </div>
-        <div class="link-item">
-            <a href="https://huggingface.co" target="_blank">
-                <img class="link-icon" src="https://huggingface.co/favicon.ico" alt="Hugging Face">
-                <span class="link-text">Huggingface</span>
-            </a>
-        </div>
-        <div class="link-item">
-            <a href="https://www.itdog.cn" target="_blank">
-                <i class="fas fa-network-wired link-icon"></i>
-                <span class="link-text">ITDOG - 在线ping</span>
-            </a>
-        </div>
-        <div class="link-item">
-            <a href="https://ping0.cc" target="_blank">
-                <i class="fas fa-database link-icon"></i>
-                <span class="link-text">Ping0</span>
-            </a>
-        </div>
-        <div class="link-item">
-            <a href="#" target="_blank">
-                <i class="fas fa-fingerprint link-icon"></i>
-                <span class="link-text">浏览器指纹</span>
-            </a>
-        </div>
-        
-        <!-- 第三行 -->
-        <div class="link-item">
-            <a href="https://ssss.nyc.mn" target="_blank">
-                <i class="fas fa-tachometer-alt link-icon"></i>
-                <span class="link-text">nezha面板</span>
-            </a>
-        </div>
-        <div class="link-item">
-            <a href="https://hoppscotch.io" target="_blank">
-                <img class="link-icon" src="https://discord.com/favicon.ico" alt="Discord">
-                <span class="link-text">Api测试</span>
-            </a>
-        </div>
-        <div class="link-item">
-            <a href="https://who.cx" target="_blank">
-                <i class="fas fa-globe link-icon"></i>
-                <span class="link-text">who.cx</span>
-            </a>
-        </div>
-        <div class="link-item">
-            <a href="https://www.domcomp.com" target="_blank">
-                <i class="fas fa-tags link-icon"></i>
-                <span class="link-text">域名比价</span>
-            </a>
-        </div>
-        
-        <div class="link-item">
-            <a href="https://www.nodeseek.com" target="_blank">
-                <i class="fas fa-server link-icon"></i>
-                <span class="link-text">NodeSeek</span>
-            </a>
-        </div>
-        <div class="link-item">
-            <a href="https://linux.do" target="_blank">
-                <i class="fab fa-linux link-icon"></i>
-                <span class="link-text">Linux do</span>
-            </a>
-        </div>
-        
-        <!-- 第四行 -->
-        <div class="link-item">
-            <a href="https://music.gvrander.eu.org" target="_blank">
-                <i class="fab fa-linux link-icon"></i>
-                <span class="link-text">在线音乐</span>
-            </a>           
-        </div>
-        <div class="link-item">
-            <a href="https://www.freereceivesms.com" target="_blank">
-                <i class="fab fa-linux link-icon"></i>
-                <span class="link-text">免费接码</span>
-            </a> 
-        </div>
-        <div class="link-item">
-            <a href="https://sublink.eooce.com" target="_blank">
-                <i class="fab fa-linux link-icon"></i>
-                <span class="link-text">订阅转换</span>
-            </a> 
-        </div>
-        <div class="link-item">
-            <a href="https://ssh.eooce.com" target="_blank">
-                <i class="fab fa-linux link-icon"></i>
-                <span class="link-text">webssh</span>
-            </a> 
-        </div>
-        <div class="link-item">
-            <a href="https://filebox.nnuu.nyc.mn" target="_blank">
-                <i class="fab fa-linux link-icon"></i>
-                <span class="link-text">文件快递柜</span>
-            </a> 
-        </div>
-        <div class="link-item">
-            <a href="https://address.nnuu.nyc.mn" target="_blank">
-                <i class="fab fa-linux link-icon"></i>
-                <span class="link-text">真实地址生成</span>
-            </a> 
-        </div>
+  <div class="header">
+    <i class="fa-solid fa-rocket"></i>
+    玩具导航页
+  </div>
+  <div class="subheader">积木 / 模型 / 手办 / 二手捡漏 / 灵感图库 · 一页直达</div>
 
-        <!-- 版权 -->
-        <div class="foot_marker">
-        <a href="https://github.com/eooce" target="_blank">Powered by eooce</a>
+  <div class="search-container">
+    <form id="searchForm" action="https://www.google.com/search" method="get" target="_blank">
+      <div class="search-wrap">
+        <i class="fas fa-magnifying-glass search-icon"></i>
+        <input id="q" class="search-box" type="text" name="q" placeholder="搜玩具、手办、积木、模型…（回车）" />
+      </div>
+    </form>
+
+    <div class="chip-row">
+      <div class="chip" data-q="LEGO 新品">LEGO 新品</div>
+      <div class="chip" data-q="Bandai HG RG MG 评测">高达评测</div>
+      <div class="chip" data-q="Hot Toys 新品">Hot Toys</div>
+      <div class="chip" data-q="POP MART 盲盒 发售">盲盒发售</div>
+      <div class="chip" data-q="Takara Tomy 变形金刚">变形金刚</div>
+      <div class="chip" data-q="amiami pre order figure">日系预订</div>
+    </div>
+  </div>
+
+  <div class="category"><span class="dot"></span>官方与商店</div>
+  <div class="container">
+    <!-- 第一行 -->
+    <div class="link-item">
+      <a href="https://www.lego.com/" target="_blank">
+        <img class="link-icon" src="https://www.lego.com/favicon.ico" alt="LEGO" />
+        <span class="link-text">LEGO</span>
+      </a>
     </div>
 
-    <script>
-        document.querySelectorAll('.link-item:not(.empty)').forEach(item => {
-            const icon = item.querySelector('img.link-icon');
-            if (icon) {
-                icon.onerror = function() {
-                    this.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJDNi40NzcgMiAyIDYuNDc3IDIgMTJzNC40NzcgMTAgMTAgMTAgMTAtNC40NzcgMTAtMTBTMTcuNTIzIDIgMTIgMnptMCAyYzQuNDE4IDAgOCAzLjU4MiA4IDhzLTMuNTgyIDgtOCA4LTgtMy41ODItOC04IDMuNTgyLTggOC04eiIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==';
-                }
-            }
-        });
-    </script>
+    <div class="link-item">
+      <a href="https://shop.bandai.com/" target="_blank">
+        <img class="link-icon" src="https://shop.bandai.com/favicon.ico" alt="Bandai" />
+        <span class="link-text">Bandai Shop</span>
+      </a>
+    </div>
+
+    <div class="link-item">
+      <a href="https://www.goodsmile.com/en" target="_blank">
+        <img class="link-icon" src="https://www.goodsmile.com/favicon.ico" alt="Good Smile" />
+        <span class="link-text">Good Smile</span>
+      </a>
+    </div>
+
+    <div class="link-item">
+      <a href="https://www.popmart.com/" target="_blank">
+        <img class="link-icon" src="https://www.popmart.com/favicon.ico" alt="POP MART" />
+        <span class="link-text">POP MART</span>
+      </a>
+    </div>
+
+    <div class="link-item">
+      <a href="https://www.amiami.com/eng/" target="_blank">
+        <img class="link-icon" src="https://www.amiami.com/favicon.ico" alt="AmiAmi" />
+        <span class="link-text">AmiAmi</span>
+      </a>
+    </div>
+
+    <div class="link-item">
+      <a href="https://www.hlj.com/" target="_blank">
+        <img class="link-icon" src="https://www.hlj.com/favicon.ico" alt="HLJ" />
+        <span class="link-text">HobbyLink Japan</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="category"><span class="dot"></span>社区与灵感</div>
+  <div class="container">
+    <!-- 第二行 -->
+    <div class="link-item">
+      <a href="https://www.reddit.com/r/lego/" target="_blank">
+        <img class="link-icon" src="https://www.reddit.com/favicon.ico" alt="Reddit" />
+        <span class="link-text">r/lego</span>
+      </a>
+    </div>
+
+    <div class="link-item">
+      <a href="https://www.reddit.com/r/Gunpla/" target="_blank">
+        <img class="link-icon" src="https://www.reddit.com/favicon.ico" alt="Reddit" />
+        <span class="link-text">r/Gunpla</span>
+      </a>
+    </div>
+
+    <div class="link-item">
+      <a href="https://www.flickr.com/" target="_blank">
+        <img class="link-icon" src="https://www.flickr.com/favicon.ico" alt="Flickr" />
+        <span class="link-text">玩具摄影</span>
+      </a>
+    </div>
+
+    <div class="link-item">
+      <a href="https://www.youtube.com/results?search_query=toy+review" target="_blank">
+        <img class="link-icon" src="https://www.youtube.com/favicon.ico" alt="YouTube" />
+        <span class="link-text">玩具评测</span>
+      </a>
+    </div>
+
+    <div class="link-item">
+      <a href="https://www.pinterest.com/search/pins/?q=toy%20photography" target="_blank">
+        <img class="link-icon" src="https://www.pinterest.com/favicon.ico" alt="Pinterest" />
+        <span class="link-text">摄影灵感</span>
+      </a>
+    </div>
+
+    <div class="link-item">
+      <a href="https://sketchfab.com/search?type=models&q=toy" target="_blank">
+        <img class="link-icon" src="https://sketchfab.com/favicon.ico" alt="Sketchfab" />
+        <span class="link-text">3D 模型库</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="category"><span class="dot"></span>二手与比价</div>
+  <div class="container">
+    <!-- 第三行 -->
+    <div class="link-item">
+      <a href="https://www.ebay.com/" target="_blank">
+        <img class="link-icon" src="https://www.ebay.com/favicon.ico" alt="eBay" />
+        <span class="link-text">eBay</span>
+      </a>
+    </div>
+
+    <div class="link-item">
+      <a href="https://www.amazon.com/" target="_blank">
+        <img class="link-icon" src="https://www.amazon.com/favicon.ico" alt="Amazon" />
+        <span class="link-text">Amazon</span>
+      </a>
+    </div>
+
+    <div class="link-item">
+      <a href="https://www.suruga-ya.com/" target="_blank">
+        <img class="link-icon" src="https://www.suruga-ya.com/favicon.ico" alt="Surugaya" />
+        <span class="link-text">駿河屋</span>
+      </a>
+    </div>
+
+    <div class="link-item">
+      <a href="https://www.mercari.com/" target="_blank">
+        <img class="link-icon" src="https://www.mercari.com/favicon.ico" alt="Mercari" />
+        <span class="link-text">Mercari</span>
+      </a>
+    </div>
+
+    <div class="link-item">
+      <a href="https://www.pricecharting.com/" target="_blank">
+        <img class="link-icon" src="https://www.pricecharting.com/favicon.ico" alt="PriceCharting" />
+        <span class="link-text">价格曲线</span>
+      </a>
+    </div>
+
+    <div class="link-item">
+      <a href="https://www.google.com/search?q=toy+release+calendar" target="_blank">
+        <i class="fas fa-calendar-days link-icon"></i>
+        <span class="link-text">发售日历</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="category"><span class="dot"></span>小工具</div>
+  <div class="container">
+    <!-- 第四行 -->
+    <div class="link-item">
+      <a href="https://ip.sb" target="_blank">
+        <img class="link-icon" src="https://ip.sb/favicon.ico" alt="ip.sb" />
+        <span class="link-text">IP 查询</span>
+      </a>
+    </div>
+
+    <div class="link-item">
+      <a href="https://www.remove.bg/" target="_blank">
+        <img class="link-icon" src="https://www.remove.bg/favicon.ico" alt="remove.bg" />
+        <span class="link-text">抠图</span>
+      </a>
+    </div>
+
+    <div class="link-item">
+      <a href="https://www.photopea.com/" target="_blank">
+        <img class="link-icon" src="https://www.photopea.com/favicon.ico" alt="Photopea" />
+        <span class="link-text">在线PS</span>
+      </a>
+    </div>
+
+    <div class="link-item">
+      <a href="https://fonts.google.com/" target="_blank">
+        <img class="link-icon" src="https://fonts.google.com/favicon.ico" alt="Google Fonts" />
+        <span class="link-text">字体</span>
+      </a>
+    </div>
+
+    <div class="link-item">
+      <a href="https://coolors.co/" target="_blank">
+        <img class="link-icon" src="https://coolors.co/favicon.ico" alt="Coolors" />
+        <span class="link-text">配色</span>
+      </a>
+    </div>
+
+    <div class="link-item">
+      <a href="https://www.google.com/" target="_blank">
+        <img class="link-icon" src="https://www.google.com/favicon.ico" alt="Google" />
+        <span class="link-text">Google</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="foot_marker">
+    <a href="https://example.com" target="_blank">Powered by your toy hub</a>
+  </div>
+
+  <script>
+    // 点击 chip：自动填充搜索词并打开 Google
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const q = chip.getAttribute('data-q') || '';
+        const input = document.getElementById('q');
+        input.value = q;
+        document.getElementById('searchForm').submit();
+      });
+    });
+
+    // favicon / 图片加载失败回退
+    document.querySelectorAll('.link-item').forEach(item => {
+      const img = item.querySelector('img.link-icon');
+      if (img) {
+        img.onerror = function() {
+          this.src =
+            'data:image/svg+xml;base64,' +
+            'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJDNi40NzcgMiAyIDYuNDc3IDIgMTJzNC40NzcgMTAgMTAgMTAgMTAtNC40NzcgMTAtMTBTMTcuNTIzIDIgMTIgMnptMCAyYzQuNDE4IDAgOCAzLjU4MiA4IDhzLTMuNTgyIDgtOCA4LTgtMy41ODItOC04IDMuNTgyLTggOC04eiIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==';
+        };
+      }
+    });
+  </script>
 </body>
 </html>
